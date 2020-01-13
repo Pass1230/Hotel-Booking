@@ -54,6 +54,6 @@ app.use("/hotels", HotelRoute);
 app.use("/hotels/:id/comments", CommentRoute);
 app.use("/", IndexRoute)
 
-app.listen(3000, function(){
+app.listen(process.env.PORT || 3000, function(){
 	console.log("The Hotel-Booking Server Has Started!")
 })
