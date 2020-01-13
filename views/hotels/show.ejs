@@ -1,0 +1,106 @@
+<%- include("../partials/header") %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead">
+				<strong></strong>
+			</p>
+			<div class="list-group">
+				<img class="map" src="https://res.cloudinary.com/practicaldev/image/fetch/s--UuIYYroj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://lawgimenez.me/content/images/2018/09/Google-Map-screenshot.png">
+			</div>
+			<p>
+			</p>
+			
+			<div>
+				<a class="btn btn-sm btn-info" href="/hotels">Go Back</a>
+				<p>
+					
+				</p>
+			</div>					
+			<% if (currentUser){ %>
+				<form action="/hotels/<%= hotel._id %>?_method=DELETE" method="POST">
+					<button class="btn btn-sm btn-dark float-left">
+						Delete the Hotel
+					</button>
+				</form>
+			<% } %>
+		
+		</div>
+		<div class="col-md-9">
+			<div class="card">
+				<img id="optional" class="img-fluid" src="<%= hotel.image %>">
+				<div class="caption">
+					<h4 class="float-right">
+						US$59 <em style="color: gray">/night</em>
+					</h4><a class="text-info" href="#">
+					<h4>
+						<%= hotel.name %>
+					</h4></a>
+					<p>
+						<%= hotel.description %>
+					</p>
+					<p>
+						<% if (hotel.author.username) { %>
+							<em>Submitted by <%= hotel.author.username %></em>
+						<% } else { %>
+							<em>Submitted by Online Sensation</em>
+						<% } %>							
+					</p>
+						
+					<p>
+					</p>
+				</div>
+			</div>
+			<p>
+			</p>
+			<div class="caption card" id="well">
+				<div class="text-right">
+					<a class="btn btn-info btn-sm" href="/hotels/<%= hotel._id %>/comments/new">Add New Comment</a>
+				</div>
+				<p>					
+				</p>
+				<% hotel.comments.forEach(function(comment){ %>
+				<div class="row">
+					<div class="col-md-12">
+						<% if (comment.author.id) { %>
+						<p>
+							
+						</p>
+							<strong><%= comment.author.username %></strong>
+						<% } else { %>
+							<strong>Customer Service</strong>
+						<% } %>												
+						<span class="float-right">9 days ago</span>
+					</div>
+				</div>
+
+						<%= comment.text %>
+						
+					
+
+					<% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
+						
+				<a id= "button" class="btn btn-sm btn-info" href="/hotels/<%= hotel._id %>/comments/<%= comment._id %>/edit">Edit</a>	
+					<form class="float-left" action="/hotels/<%= hotel._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+					<button class="btn btn-sm btn-dark float-left">
+						Delete
+					</button>
+												
+					</form>
+				
+
+					
+				<% } %>
+				<% }) %>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<%- include("../partials/footer") %>

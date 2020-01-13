@@ -1,0 +1,33 @@
+<%- include("../partials/header") %>
+
+<div class="container">	
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to Hotel-Booking!</h1>
+			<p>View our hand-picked hotels in Champaign!</p>
+			
+			<p>
+			<a class="btn btn-info btn-sm" href="/hotels/new">Add a New Hotel</a>
+			</p>
+		</div>		
+	</header>
+
+	<div class="row text-center" style="display:flex; flex-wrap:wrap;">	
+		<% hotels.forEach(function(hotel){ %>
+				<div class="col col-md-4 col-sm-6">
+					<img src="<%= hotel.image %>" class="img-thumbnail">
+					<div class="caption">
+						<p>
+							<%= hotel.name %>
+						</p>
+					</div>
+					<p>
+						<a class="btn btn-info btn-sm" href="/hotels/<%= hotel._id %>">More Info</a>
+					</p>
+				</div>				
+		<% }) %>
+	
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

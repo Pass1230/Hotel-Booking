@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hotel-Booking</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" href="/stylesheets/main.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	</head>
+	
+	<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid">
+	  <a class="navbar-brand text-info" href="/"><i class="fas fa-hotel text-info"></i>  Hotel-Booking</a>
+		  	<ul class="nav justify-content-end">
+				<% if (!currentUser) { %>
+					<li class="nav-item"><a class="nav-link text-info" href="/login">Login</a></li>
+					<li class="nav-item"><a class="nav-link text-info" href="/register">Sign Up</a></li>
+				<% } else { %>
+					<li class="nav-item"><a class="nav-link disabled" href="#"><%= currentUser.username %> </a></li>
+					<li class="nav-item"><a class="nav-link text-info" href="/logout">Logout</a></li>
+				<% } %>
+				
+				
+			</ul>
+  		</div>
+</nav>
+<p></p>
+

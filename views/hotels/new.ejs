@@ -1,0 +1,32 @@
+<%- include("../partials/header") %>
+
+<div class="container">	
+	<p></p>
+	<h1 style="text-align: center;">		
+		Creat a New Hotel!
+	</h1>
+	<div class="row">
+		<div style="width: 35%; margin: 25px auto;">		
+			<form action="/hotels" method="POST">
+				<div class="form-group">
+					<input class="form-control" type="text" name="Name" placeholder="name">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="Image" placeholder="image url">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="Description" placeholder="description">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-lg btn-info btn-block">
+					Submit
+					</button>
+				</div>
+				<a class="text-info" href="/hotels">Go Back</a>
+			</form>
+		</div>
+		
+	</div>	
+</div>
+
+<%- include("../partials/footer") %>
