@@ -15,7 +15,7 @@ var HotelRoute = require("./routes/hotels.js"),
 	CommentRoute = require("./routes/comments.js"),
 	IndexRoute = require("./routes/index.js");
 
-mongoose.connect("mongodb+srv://Yu:Aa1051164697@cluster0-mqu4f.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://@cluster0-mqu4f.mongodb.net/test?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
